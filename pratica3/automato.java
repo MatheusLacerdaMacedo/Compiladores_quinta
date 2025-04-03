@@ -22,22 +22,23 @@ public class automato {
         for (char simbolo : palavra.toCharArray()) {
             switch (estado) {
                 case "q0":
-                    if (simbolo == 'b') estado = "s3";
-                    else if (simbolo == 'a') estado = "s4";
+                    if (simbolo == 'b') estado = "q0";
+                    else if (simbolo == 'a') estado = "s3";
                     else return false;
                     break;
                 case "s3":
-                    if (simbolo == 'b') estado = "s6";
-                    else if (simbolo == 'a') estado = "q0";
+                    if (simbolo == 'b') estado = "q0";
+                    else if (simbolo == 'a') estado = "s6";
                     else return false;
                     break;
                 case "s4":
-                    if (simbolo == 'b') estado = "s3";
+                    if (simbolo == 'b') estado = "s4";
                     else if (simbolo == 'a') estado = "s6";
                     else return false;
                     break;
                 case "s6":
-                    if (simbolo == 'a' || simbolo == 'b') estado = "s6";
+                    if (simbolo == 'a') estado = "s6";
+                    else if( simbolo == 'b') estado = "s4";
                     else return false;
                     break;
             }
